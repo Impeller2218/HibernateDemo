@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="model.Employee" table="EmployeeDetails">
+	<id name="empId" column="empId" type="int">
+	<generator class="increment"/>
+	</id>
+	<property name="empName" column="empName" type="string"/>
+	<property name="empPhoneNum" column="empPhoneNum" type="string"/>
+	<property name="experience" column="experience" type="string"/>
+	<property name="dob" column="dob" type="date"/>
+	<!-- <property name="gender" column="gender" type="string"/> -->
+ 	<property name="salary" column="salary" type="int"/>
+ 	<many-to-one name="department" column="department" class="model.Department" not-null="false" cascade="all"/>
+ 	<one-to-one name="bankAccount"  class="model.BankAccount"  cascade="all"/>
+ <!-- 	<property name="deptId" column="deptId" type="int"/> -->
+	</class>
+</hibernate-mapping>
